@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Pemerintah</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    }
+
+    .bg-image {
+    background-image: url('https://waktu.news/wp-content/uploads/2020/12/danau-moat.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .navbar-brand span {
+            color: rgb(0, 0, 0);
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 800px;
+        }
+
+        .menu-button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            width: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+
+        .page-content {
+            display: none;
+            color: #000;
+            text-align: center;
+            padding: 50px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+
+        .page-content h2 {
+            font-size: 2em;
+        }
+
+        .page-content p {
+            font-size: 1.2em;
+        }
+
+        .navbar-nav .nav-link {
+            color: #333333;
+            margin-right: 15px;
+        }
+
+        .photo-section img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-media-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .social-media-list li {
+            margin: 5px 0;
+        }
+
+        .social-media-list a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .social-media-list a:hover {
+            text-decoration: underline;
+        }
+
+        .image-text-section {
+            margin-top: 30px;
+        }
+
+        .image-text-section img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-text-section p {
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+        }
+
+    .bg-image {
+        animation: fadeIn 1s ease-in-out;
+        }
+
+
+    .navbar {
+    animation: slideInDown 1s ease-out;
+        }
+        .menu-button {
+    animation: scaleUp 1s ease-in-out;
+    transition: transform 0.3s;
+        }
+
+
+    .menu-button:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+        }
+
+
+    .page-content {
+    animation: fadeIn 1s ease-in-out;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://klikhijau.com/wp-content/uploads/2023/03/Cagar-Alam-Gunung-Ambang-Antara-Pesona-dan-Ancaman-Kepunahan-Satwa-Endemik-.jpeg" alt="Logo DESA">
+            <span>Tempat Wisata Di Desa Moat</span>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('beranda')">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('tentang')">Peta Desa Moat</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('kontak')">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Background Image and Buttons -->
+    <div class="bg-image" id="bgImage">
+        <h1 class="text-center">INDAHNYA ALAM DI DESA SAYA</h1>
+        <p class="text-center">Jangan kotori alam saya</p>
+        <div class="button-grid">
+            <div class="menu-button" onclick="showPage('gunung-ambang')">Gunung Ambang</div>
+            <div class="menu-button" onclick="showPage('desa-moat')">Desa Moat</div>
+            <div class="menu-button" onclick="showPage('danau-moat')">Wisata Danau Moat</div>
+            <div class="menu-button" onclick="showPage('kebun-strawberry')">Wisata Kebun Strawberry</div>
+            <div class="menu-button" onclick="showPage('vila-moat')">Wisata Vila Moat</div>
+            <div class="menu-button" onclick="showPage('lahan-pangan')">Lahan Pangan Pertanian</div>
+        </div>
+    </div>
+
+    <!-- Content Pages -->
+    <div class="page-content" id="gunung-ambang">
+        <h2>Gunung Ambang</h2>
+        <div class="row image-text-section">
+            <div class="col-md-6">
+                <img src="https://shelterjelajah.com/wp-content/uploads/2024/06/Gunung-Ambang.jpeg" alt="Gunung Ambang">
+                <p>Keindahan alam di Gunung Ambang sangat mempesona, menjadikan tempat ini sebagai destinasi wisata favorit.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://cdn1-production-images-kly.akamaized.net/9zrVny0ooyKkSB81FafitI1et_Q=/500x281/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4836331/original/016999600_1716098660-WhatsApp_Image_2024-05-19_at_11.37.21.jpeg" alt="Gunung Ambang View">
+                <p>Panorama pegunungan yang menawan dengan udara yang sejuk, cocok untuk pendakian.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content" id="desa-moat">
+        <h2>Desa Moat</h2>
+        <div class="row image-text-section">
+            <div class="col-md-6">
+                <img src="https://i.ytimg.com/vi/WVfew2W7oBc/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AHUBoAC4AOKAgwIABABGE0gZSg7MA8=&rs=AOn4CLCe9AbvF1LGY3H5xdPkJDUrh0GwNQ" alt="Desa Moat">
+                <p>Desa Moat dikenal dengan keasriannya dan masyarakat yang ramah.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://news.boltimkab.go.id/asset/images/IMG-20230825-WA0007.jpg" alt="Komunitas Pemuda desa moat">
+                <p>Komunitas desa yang sedang membersikan tempat wisata.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content" id="danau-moat">
+        <h2>Wisata Danau Moat</h2>
+        <div class="row image-text-section">
+            <div class="col-md-6">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRx0NChxTvD3Ht5o9yOs4G2dJKpv8qj9JbOPKJ_QXKw019lH9DyOouLeiJxpORyPuCfMcDIg04LbZx2O9IU-BwNcZX3pNfB_4BlE_wp5CP18qJuADy0dGF__SPA2DKUGwX6AJHyCHIvw/s1600/danau-moat-boltim+ketinggian+1000+meter+di+atas+permukaan+laut.jpg" alt="Danau Moat">
+                <p>Danau Moat menawarkan pemandangan air yang tenang dan alam yang menyejukkan.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://assets.pikiran-rakyat.com/crop/0x0:0x0/1200x675/photo/2024/08/04/470501762.jpeg" alt="festival danau moat">
+                <p>Kegiatan festival di danau moat.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content" id="kebun-strawberry">
+        <h2>Wisata kebun strawberry</h2>
+        <div class="row image-text-section">
+            <div class="col-md-6">
+                <img src="https://asset-2.tstatic.net/manado/foto/bank/images/DMoat-Cafe-sxdvzsdvzsv.jpg" alt="kebun strawberry">
+                <p>Kebun strawberry dengan pemandanganya.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://asset-2.tstatic.net/manado/foto/bank/images/para-pengunjung-yang-datang-ke-tempat-wisata-strawberry-dmoat-boltim.jpg" alt="Spot Foto ">
+                <p>Tempat spot di kebun strawberry.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content" id="vila-moat">
+        <h2>Wisata Vila moat</h2>
+        <div class="row image-text-section">
+            <div class="col-md-6">
+                <img src="https://i.ytimg.com/vi/ANkpSl1PaVQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBfbho7o-kFvgKzNPyPhusSlASmCQ" alt="Vila moat">
+                <p>villa moat.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://t-2.tstatic.net/manado/foto/bank/images/bonok-bonok_20170520_024931.jpg" alt="Spot foto">
+                <p>Tempat spot foto di villa moat.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content" id="lahan-pangan">
+        <h2>Lahan Pangan pertanian</h2>
+        <div class="row image-text-section">
+            <div class="col-md-6">
+                <img src="https://cdn1.katadata.co.id/media/images/thumb/2018/07/09/2018_07_09-21_33_51_396b76b593dd8a738931c405e551b34e_620x413_thumb.jpeg" alt="Lahan pertania">
+                <p>Tanaman yang sering di tanam oleh petani di desa saya.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://bolmong.news/wp-content/uploads/2023/11/Tampak-Bupati-Boltim-Sam-Sachrul-Mamonto-saat-memberikan-sambutan-pada-acara.jpg" alt="festival">
+                <p>Festival di desa moat, festival ini dilaksanak untuk keberhasilan pangan parah petani.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content" id="tentang">
+        <h2>Peta Desa Moat</h2>
+        <p>Berikut adalah peta desa yang menunjukkan berbagai lokasi wisata dan fasilitas umum di Desa Moat.</p>
+        <img src="https://www.google.com/maps/vt/data=oySUtRVHBG0zcjkU-o0OcbyQhYizLL7-U1ezFsPQaOstNHIF1BMoB6DIMgbzp59gkSwlUvAlmmc3aBw0DQ5PlFvLIwSdBMPtVqA8gE7PU7eb_GK8Tvq3vJkCieDsJw-FnlghbnRS94lVKyRbf-GqVoMGBFqRoGfWyx798s-ZkmDV5WKlrJ-ViAoGZLXYZ6FrlkTwAlVMOVT-WCJHAYWyYyLDJSF2mhfyuc2-aB4bKQm-osz11ZXz5AEF60XLE003JEmufE9w3BDAxbcDYg_XCD07rEWJRU5KVy-O4gNpsdY9_0gtl-iDVw" alt="Peta Desa Moat" style="width:100%; max-width:600px;">
+    </div>
+
+    <div class="page-content" id="kontak">
+        <h2>Kontak</h2>
+        <p>Hubungi kami melalui media sosial atau email untuk informasi lebih lanjut.</p>
+        <ul class="social-media-list">
+            <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+            <li><a href="mailto:info@example.com">Email</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById('bgImage').style.display = 'none';
+
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (link.textContent === "Beranda") {
+                    document.getElementById('bgImage').style.display = 'flex';
+                }
+            });
+        });
+    </script>
+
+<script>
+    function openFullscreen() {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        }
+    }
+
+    window.onload = openFullscreen;
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
